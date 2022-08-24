@@ -1,0 +1,123 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Drop Database",
+            "command": "dotnet-ef",
+            "type": "process",
+            "args": [
+                "database",
+                "drop",
+                "-p",
+                "${workspaceFolder}/src/Golf.DbMigrator/Golf.DbMigrator.csproj",
+                "-s",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "none"
+        },
+        {
+            "label": "Update Database",
+            "command": "dotnet-ef",
+            "type": "process",
+            "args": [
+                "database",
+                "update",
+                "-p",
+                "${workspaceFolder}/src/Golf.DbMigrator/Golf.DbMigrator.csproj",
+                "-s",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "none"
+        },
+        {
+            "label": "Remove Migration",
+            "command": "dotnet-ef",
+            "type": "process",
+            "args": [
+                "migrations",
+                "remove",
+                "-f",
+                "-p",
+                "${workspaceFolder}/src/Golf.DbMigrator/Golf.DbMigrator.csproj",
+                "-s",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "none"
+        },
+        {
+            "label": "Add Migration",
+            "command": "dotnet-ef",
+            "type": "process",
+            "args": [
+                "migrations",
+                "add",
+                "bruh",
+                "-p",
+                "${workspaceFolder}/src/Golf.DbMigrator/Golf.DbMigrator.csproj",
+                "-s",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "none"
+        },
+        {
+            "label": "Migration",
+            "type": "process",
+            "dependsOn": [
+                "Remove Migration",
+                "Add Migration",
+                "Drop Database",
+                "Update Database"
+            ],
+            "dependsOrder": "sequence",
+            "command": ""
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/src/Golf.HttpApi.Host/Golf.HttpApi.Host.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+    ],
+    "inputs": [
+        {
+            "id": "migrationName",
+            "type": "promptString",
+            "description": "Migration Name",
+        }
+    ]
+}

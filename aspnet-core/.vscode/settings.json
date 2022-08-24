@@ -1,0 +1,23 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "Golf",
+      "database": "golf",
+      "golfername": "postgres"
+    }
+  ],
+  "cSpell.words": [
+    "Agroforestry",
+    "Daeha",
+    "Dtos",
+    "Hmac",
+    "Serilog",
+    "jsonb",
+    "vantrigolf"
+  ]
+}

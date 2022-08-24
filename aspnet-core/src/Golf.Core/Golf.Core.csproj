@@ -1,0 +1,30 @@
+﻿
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Golf.Domain.Shared\Golf.Domain.Shared.csproj" />
+    <ProjectReference Include="..\Golf.Domain\Golf.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Odoo\OdooRequest\" />
+    <Folder Include="Dtos\Controllers\AdminController\Account\Response\" />
+    <Folder Include="Dtos\Controllers\AdminController\Report\Response\" />
+    <Folder Include="Dtos\Controllers\AdminController\SystemSettings\Responses\" />
+    <Folder Include="Dtos\Controllers\AdminController\SystemSettings\Requests\" />
+    <Folder Include="Dtos\Controllers\BookingController\Reqests\" />
+    <Folder Include="Dtos\Controllers\CommentController\Respone\" />
+    <Folder Include="Dtos\Controllers\GroupAdminController\Response\" />
+    <Folder Include="Dtos\Controllers\Conversation\" />
+    <Folder Include="Dtos\Controllers\PhotosController\Responses\" />
+    <Folder Include="Dtos\Controllers\PostController\Respone\" />
+  </ItemGroup>
+</Project>
